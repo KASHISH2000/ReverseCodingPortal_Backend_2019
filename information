@@ -1,0 +1,4 @@
+/Connect- Api to communicate between frontend and Backend.
+/showMember-get request will be send to display member names.
+/postReq-post request will be send through ajax giving IDs of sender and receiver
+/confirmReq-post request will be send through ajax giving IDs of sender and receiver
