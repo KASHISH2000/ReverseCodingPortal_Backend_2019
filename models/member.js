@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
+var ObjectID = require('mongodb').ObjectID;
 
 
 var memberSchema = new mongoose.Schema({
     _id: {
-        type: String
+        type: ObjectID
     },
     name: {
         type: String,

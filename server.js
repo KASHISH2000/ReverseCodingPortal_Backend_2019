@@ -17,7 +17,7 @@ app.use('', showMember);
 app.use('', postReq);
 app.use('', confirmReq);
 
-
+//require('./api')(app, {});
 app.listen(port, () => {
     console.log(`Server is up at ${port}`);
 

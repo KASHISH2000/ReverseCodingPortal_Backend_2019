@@ -2,11 +2,8 @@ const router = require('express').Router();
 const member = require('../models/member');
 
 router.get('/showMember', (req, res) => {
-    member.find().then((user) => {
-        if (!user.TeamID) {
-            res.json({ 'name': user.name, '_id': user._id });
-
-        }
+    member.find({ TeamID: undefined }, 'name').then((user) => {
+        res.json({ "Members are:": user })
     }).catch((e) => {
         res.json({ err: e.message })
     })

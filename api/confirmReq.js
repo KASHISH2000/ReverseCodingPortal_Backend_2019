@@ -2,6 +2,7 @@ const router = require('express').Router();
 const member = require('../models/member');
 const request = require('../models/request');
 const team = require('../models/team');
+var ObjectID = require('mongodb').ObjectID;
 
 router.post('/confirmReq', (req, res) => {
     //from->the one who has logged in currently
@@ -12,15 +13,21 @@ router.post('/confirmReq', (req, res) => {
                 MemberOneID: req.body.to,
                 MemberTwoID: req.body.from
             }).save().then((newUser) => {
-                member.find({ '_id': req.body.from }).then((userEntry) => {
-                    userEntry.teamID = newUser._id
-                })
-                member.find({ '_id': req.body.to }).then((userEntry) => {
-                    userEntry.teamID = newUser._id
-                })
+                if (newUser) {
+                    member.findByIdAndUpdate(req.body.from, {
+                        $set: {
+                            TeamID: newUser._id
+                        }
+                    }, { new: true }).then((updated) => {
+                        console.log(updated)
+                        if (updated) {
+                            res.json({ "Message": "TeamID updated of 1" })
+                        }
+                    })
+                }
+
             })
-        }
-        else {
+        } else {
             res.json({ 'ERROR MESSAGE': 'REQUEST NOT FOUND' });
         }
 
