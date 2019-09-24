@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link href="https://fonts.googleapis.com/css?family=Work+Sans&display=swap" rel="stylesheet">
+<style>
+body  {
+  background-image: url("background.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+#header{
+	height:80px;
+}
+#logo2{
+    float:right;
+    padding-right: 15px;
+}
+#logo1{
+	padding-top: 15px;
+    float: left;
+}
+#logo3{
+	padding-left: 300px;
+}
+.login-trigger {
+  font-weight: bold;
+  color: #fff;
+  background: linear-gradient(to bottom right,#1E4D92,#00C6A7);
+  padding: 15px 30px;
+  border-radius: 30px;
+  position: relative;
+  margin-left: 600px; 
+  top: 50%;
+}
+#arrow{
+	padding-top:90px;
+	padding-left: 670px;
+}
+#about{
+	   padding-top: 100px;
+	   text-align: left;
+	   font-style:normal;
+		font-weight:bold;
+		font-family: Work Sans;
+		font-size: 30px;
+		color: rgba(255,255,255,1);
+}
+#Puzzle{
+	    padding-top: 20px;
+	    text-align: left;
+		font-family: Work Sans;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 20px;
+		color: rgba(255,255,255,1);
+}
+#INSTRUCTIONS{
+	 padding-top: 100px;
+	   text-align: left;
+	   font-style: normal;
+		font-weight:bold;
+		font-family: Work Sans;
+		font-size: 30px;
+		color: rgba(255,255,255,1);
+
+}
+#ins{
+	    padding-top: 20px;
+	    white-space: nowrap;
+		text-align: left;
+		font-family: Work Sans;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 20px;
+		color: rgba(255,255,255,1);
+}
+#RULES{
+   padding-top: 100px;
+	   text-align: left;
+	   font-style: normal;
+		font-weight:bold;
+		font-family: Work Sans;
+		font-size: 30px;
+		color: rgba(255,255,255,1); 	
+}
+#rul{
+	 padding-top: 20px;
+	    white-space: nowrap;
+		text-align: left;
+		font-family: Work Sans;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 20px;
+		color: rgba(255,255,255,1);
+}
+#FAQ {
+		position: absolute;
+		width: 1325px;
+		height: 736px;
+		left: 10px;
+		top: 1600px;
+		overflow: hidden;
+	}
+	#FAQs {
+		position: absolute;
+		left: 4px;
+		top: 0px;
+		overflow: hidden;
+		width: 119px;
+		white-space: nowrap;
+		text-align: center;
+		font-family: Work Sans;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 48px;
+		color: rgba(255,255,255,1);
+	}
+	.Rectangle_11 {
+		position: absolute;
+		overflow-x: hidden;
+		width: 1325px;
+		height: 100px;
+		left: 0px;
+		right:0px;
+		top: 99px;
+	}
+	.Rectangle_12 {
+		position: absolute;
+		overflow-x: hidden;
+		width: 1325px;
+		height: 100px;
+		left: 0px;
+		right:0px;
+		top: 210px;
+	}
+	.Rectangle_13 {
+		position: absolute;
+		overflow-x: hidden;
+		width: 1325px;
+		height: 183px;
+		right:0px;
+		left: 0px;
+		top: 326px;
+	}
+	.Rectangle_14 {
+		position: absolute;
+		overflow-x: hidden;
+		width: 1325px;
+		height: 100px;
+		left: 0px;
+		right:0px;
+		top: 525px;
+	}
+	.Rectangle_15 {
+		position: absolute;
+		overflow-x: hidden;
+		width: 1325px;
+		height: 100px;
+		left: 0px;
+		right:0px;
+		top: 636px;
+	}
+	#Can_I_compete_or_take_part_wit {
+		position: absolute;
+		left: 20px;
+		top: 135px;
+		overflow:hidden;
+		width: 580px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Work Sans;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 20px;
+		color: rgba(13,71,161,1);
+	}
+	#When_is_the_event_ {
+		position: absolute;
+		left: 20px;
+		top: 672px;
+		overflow: hidden;
+		width: 228px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Work Sans;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 20px;
+		color: rgba(13,71,161,1);
+	}
+	#Where_is_the_event_going_to_be {
+		position: absolute;
+		left: 20px;
+		top: 246px;
+		overflow: hidden;
+		width: 509px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Work Sans;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 20px;
+		color: rgba(13,71,161,1);
+	}
+	#What_is_the_prize__ {
+		position: absolute;
+		left: 20px;
+		top: 561px;
+		overflow: visible;
+		width: 222px;
+		white-space: nowrap;
+		text-align: left;
+		font-family: Work Sans;
+		font-style: normal;
+		font-weight: bold;
+		font-size: 20px;
+		color: rgba(13,71,161,1);
+	}
+	#_Lorem_ipsum_dolor_sit_amet__c {
+		position: absolute;
+		left: 20px;
+		top: 357px;
+		overflow: hidden;
+		width: 1300px;
+		height: 142px;
+		text-align: left;
+		font-family: Work Sans;
+		font-style: normal;
+		font-weight: normal;
+		font-size: 20px;
+		color: rgba(255,255,255,1);
+	}
+</style>
+</head>
+<body>
+	<div id="header">
+	<div id="logo2">
+	<img src="vit_logo.png" height="150px" width="180px">
+    </div>
+	<div id="logo1">
+	<img src="acm_logo.png" height="100px" width="210px">
+    </div>
+    </div>
+    <div id="logo3">
+    	<img src="rc_logo.png" height="400px" width="750px">
+    </div>
+    <a class="login-trigger" href="#" data-target="#login" data-toggle="modal" onclick="myfunction()">REGISTER NOW</a>
+    <div id="arrow">
+    	<img src="arrow.png" height="50px" width="50px">
+    </div>
+    <script>
+	function myfunction(){
+		window.open("https://login-authentication-app.herokuapp.com/auth","pop-up", "height=500px,width=500px")
+	}
+</script>
+<script>
+	window.open('http://localhost:3000/auth')
+
+	window.addEventListener("message",(e)=>{
+		if(!(e.data.type=='token')) return
+		console.log(e.data,!(e.data.type=='token'))
+	    console.log(e.data.token)
+	}, false);
+</script>
+<div id="about">
+	<span>ABOUT</span>
+	</div>
+
+		<div id="Puzzle">
+			<span>It is dual round mind-puzzling competition where math is intertwined with coding. The event makes one to have a reverse approach while solving any problem. The participants will be provided executable files that they can run and fetch the input-output test cases and hence come up with a code that would lead to those test cases. In short, a four step procedure, execute, fetch, decode and code. The first round is an online round that starts on 18 th of October at 11AM and ends at 11PM same day. The second round is scheduled to be on 20 th October at 11 AM which will be conducted offline. Reverse Coding is all about math, logic and fun! To be a part of it, register and form your team.</span>
+		</div>
+		<div id="INSTRUCTIONS">
+			<span>INSTRUCTIONS</span>
+		</div>
+		<div id="ins">
+			<span>Step 1:</span><span style="font-style:normal;font-weight:normal;"> Register<br/></span><br><span>Step 2:</span><span style="font-style:normal;font-weight:normal;"> Create a team/ Join a team<br/></span><br><span>Step 3:</span><span style="font-style:normal;font-weight:normal;"> Click here to invite a member to your team<br/></span><br><span>Step 4:</span><span style="font-style:normal;font-weight:normal;"> Check notifications in your dashboard to join a team.</span>
+		</div>
+		<div id="RULES">
+			<span>RULES</span>
+		</div>
+		<div id="rul">
+			<span>A team can have maximum 2 participants<br/><br/>A participant cannot leave a team once joined</span>
+		</div>
+		<div id="FAQ">
+		<div id="FAQs">
+			<span>FAQs</span>
+		</div>
+		<svg class="Rectangle_11">
+			<rect fill="rgba(255,255,255,1)" stroke="rgba(13,71,161,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Rectangle_11" rx="4" ry="4" x="0" y="0" width="1325" height="100">
+			</rect>
+		</svg>
+		<svg class="Rectangle_12">
+			<rect fill="rgba(255,255,255,1)" stroke="rgba(13,71,161,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Rectangle_12" rx="4" ry="4" x="0" y="0" width="1325" height="100">
+			</rect>
+		</svg>
+		<svg class="Rectangle_13">
+			<linearGradient id="LinearGradientFill2" spreadMethod="pad" x1="1.061" x2="-0.054" y1="0.5" y2="0.5">
+				<stop offset="0" stop-color="#6294f8" stop-opacity="1"></stop>
+				<stop offset="1" stop-color="#264cb8" stop-opacity="1"></stop>
+			</linearGradient>
+			<rect fill="url(#LinearGradientFill2)" id="Rectangle_13" rx="4" ry="4" x="0" y="0" width="1325" height="183">
+			</rect>
+		</svg>
+		<svg class="Rectangle_14">
+			<rect fill="rgba(255,255,255,1)" stroke="rgba(13,71,161,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Rectangle_14" rx="4" ry="4" x="0" y="0" width="1325" height="100">
+			</rect>
+		</svg>
+		<svg class="Rectangle_15">
+			<rect fill="rgba(255,255,255,1)" stroke="rgba(13,71,161,1)" stroke-width="1px" stroke-linejoin="miter" stroke-linecap="butt" stroke-miterlimit="4" shape-rendering="auto" id="Rectangle_15" rx="4" ry="4" x="0" y="0" width="1325" height="100">
+			</rect>
+		</svg>
+		<div id="Can_I_compete_or_take_part_wit">
+			<span>Can I compete or take part without a teammate?</span>
+		</div>
+		<div id="When_is_the_event_">
+			<span>When is the event?</span>
+		</div>
+		<div id="Where_is_the_event_going_to_be">
+			<span>Where is the event going to be conducted?</span>
+		</div>
+		<div id="What_is_the_prize__">
+			<span>What is the prize? </span>
+		</div>
+		<div id="_Lorem_ipsum_dolor_sit_amet__c">
+			<span>"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+			 </span>
+		</div>
+	</div>
+</body>
+</html>
