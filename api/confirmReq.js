@@ -13,24 +13,17 @@ router.post('/confirmReq', (req, res) => {
                 MemberOneID: req.body.to,
                 MemberTwoID: req.body.from
             }).save().then((newUser) => {
-                if (newUser) {
-                    member.findByIdAndUpdate(req.body.from, {
-                        $set: {
-                            TeamID: newUser._id
-                        }
-                    }, { new: true }).then((updated) => {
-                        console.log(updated)
-                        if (updated) {
-                            res.json({ "Message": "TeamID updated of 1" })
-                        }
-                    })
-                }
-
+                member.update({ _id: { $in: ['req.body.from', 'req.body.to'] } }, {
+                    $set: {
+                        TeamID: newUser._id
+                    }
+                }, { multi: true }).then(() => {
+                    res.json({ "Message": "kkkkkkkkkkkkkkkkkk" })
+                })
             })
         } else {
             res.json({ 'ERROR MESSAGE': 'REQUEST NOT FOUND' });
         }
-
     });
     request.findOneAndDelete({ 'ReceiverID': req.body.from }).then((user) => {
         if (!user) {

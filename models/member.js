@@ -5,7 +5,7 @@ var ObjectID = require('mongodb').ObjectID;
 
 var memberSchema = new mongoose.Schema({
     _id: {
-        type: ObjectID
+        type: String
     },
     name: {
         type: String,
@@ -34,7 +34,8 @@ var memberSchema = new mongoose.Schema({
         }
     },
     TeamID: {
-        type: String
+        type: String,
+        default: ''
     }
 });
 
