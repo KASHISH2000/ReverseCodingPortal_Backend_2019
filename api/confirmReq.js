@@ -2,7 +2,7 @@ const router = require('express').Router();
 const member = require('../models/member');
 const request = require('../models/request');
 const team = require('../models/team');
-var ObjectID = require('mongodb').ObjectID;
+
 
 router.post('/confirmReq', (req, res) => {
     //from->the one who has logged in currently
@@ -13,12 +13,12 @@ router.post('/confirmReq', (req, res) => {
                 MemberOneID: req.body.to,
                 MemberTwoID: req.body.from
             }).save().then((newUser) => {
-                member.update({ _id: { $in: ['req.body.from', 'req.body.to'] } }, {
+                member.update({ _id: { $in: [req.body.from, req.body.to] } }, {
                     $set: {
                         TeamID: newUser._id
                     }
                 }, { multi: true }).then(() => {
-                    res.json({ "Message": "kkkkkkkkkkkkkkkkkk" })
+                    res.json({ "Message": "Congratulations! Team Formed." })
                 })
             })
         } else {

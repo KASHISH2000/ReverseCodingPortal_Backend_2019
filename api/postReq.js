@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const member = require('../models/member');
 const request = require('../models/request');
 
 router.post('/postReq', (req, res) => {
