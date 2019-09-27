@@ -2,3 +2,5 @@
 /showMember-get request will be send to display member names.
 /postReq-post request will be send through ajax giving IDs of sender and receiver
 /confirmReq-post request will be send through ajax giving IDs of sender and receiver
+/dashboard- get request will be send to get team details when the team is formed
+/requestList-get request will be send to get names of participants who have sent you request

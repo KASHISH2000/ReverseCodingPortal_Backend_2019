@@ -4,16 +4,8 @@ const dotenv = require('dotenv').config();
 const member = require('../models/member');
 const rp = require('request-promise');
 var ObjectID = require('mongodb').ObjectID;
+userpolicy = require('../policies/user');
 
-DecodeToken = function (token) {
-    try {
-        decoded = jwt.verify(token, process.env.JWT_SECRET);
-        return decoded;
-    } catch (e) {
-        console.log(e.message)
-        console.log('Error decoding token');
-    }
-}
 
 reqpost = function (token) {
     return new Promise((resolve, reject) => {
@@ -39,9 +31,9 @@ reqpost = function (token) {
 
 }
 
-router.all('/Connect', (req, res) => {
-    var dtoken = DecodeToken(req.body.token);
-    member.findOne({ '_id': dtoken._id }).then((user) => {
+router.all('/Connect', userpolicy, (req, res) => {
+    id = req.body.id
+    member.findOne({ '_id':id }).then((user) => {
         if (user) {
             if (user.TeamID != '') {
                 res.json({ 'key': false });
@@ -56,7 +48,7 @@ router.all('/Connect', (req, res) => {
                     regno: data.regno,
                     phno: data.phno,
                     email: data.email,
-                    _id: new ObjectID(dtoken._id)
+                    _id: new ObjectID(id)
                 }).save().then((newUser) => {
                     if (newUser.TeamID != '') {
                         res.json({ 'key': false });
