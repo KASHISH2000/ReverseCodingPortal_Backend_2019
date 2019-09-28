@@ -34,6 +34,10 @@ var memberSchema = new mongoose.Schema({
     TeamID: {
         type: String,
         default: ''
+    },
+    picture:{
+        type: String,
+        default: ''
     }
 });
 

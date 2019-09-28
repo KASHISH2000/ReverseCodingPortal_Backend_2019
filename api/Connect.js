@@ -43,11 +43,13 @@ router.all('/Connect', userpolicy, (req, res) => {
             }
         } else {
             reqpost(req.body.token).then((data) => {
+                console.log(data)
                 new member({
                     name: data.name,
                     regno: data.regno,
                     phno: data.phno,
                     email: data.email,
+                    picture:data.picture,
                     _id: new ObjectID(id)
                 }).save().then((newUser) => {
                     if (newUser.TeamID != '') {

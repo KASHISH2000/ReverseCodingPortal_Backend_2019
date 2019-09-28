@@ -1,21 +1,22 @@
 const router = require('express').Router();
 const member = require('../models/member');
+const Team = require('../models/team')
 userpolicy = require('../policies/user');
 
-router.get('/dashboard', userpolicy, (req, res) => {
+router.post('/dashboard', userpolicy, (req, res) => {
     id = req.body.id
-    member.findOne({ '_id': id }).then((user) => {
-        if (user) {
-            teamid = user.TeamID;
-            member.find({ 'TeamID': teamid }).then((user) => {
+    Team.findOne({ $or: [{ MemberOneID: id }, { MemberTwoID: id }] }).then((team) => {
+
+        if (team) {
+            member.find({ _id: { $in: [team.MemberOneID, team.MemberTwoID] } }).then((user) => {
                 if (user) {
-                    res.json({ 'Team Details': user })
+                    res.json({ 'Team': user })
                 } else {
                     res.status(401).json({ err: 'User not Found.' })
                 }
             })
         } else {
-            res.status(401).json({ err: 'User not Found.' })
+            res.status(401).json({ err: 'Team not Found.' })
         }
     })
 

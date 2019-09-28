@@ -7,11 +7,11 @@ userpolicy = require('../policies/user');
 //to->the on to whom req is sent
 
 router.post('/confirmReq', userpolicy, (req, res) => {
-    if(!req.body.to) return res.status(401).json({err:'RequestId not found'})
+    if (!req.body.to) return res.status(401).json({ err: 'RequestId not found' })
     from = req.body.id
     // console.log("from", from)
     // console.log("to", req.body.to)
-
+    console.log({ 'ReceiverID': from, 'SenderID': req.body.to })
     request.findOne({ 'ReceiverID': from, 'SenderID': req.body.to }).then((user) => {
         if (user) {
             new team({
@@ -26,18 +26,19 @@ router.post('/confirmReq', userpolicy, (req, res) => {
                     res.json({ "Message": "Congratulations! Team Formed." })
                 })
             })
+            request.findOneAndDelete({ 'ReceiverID': from, 'SenderID': req.body.to }).then((user) => {
+                if (!user) {
+                    return res.status(404).send();
+                }
+                else {
+                    return
+                }
+            });
         } else {
             res.status(401).json({ "err": 'REQUEST NOT FOUND' });
         }
     });
-    request.findOneAndDelete({ 'ReceiverID': from, 'SenderID': req.body.to }).then((user) => {
-        if (!user) {
-            return res.status(404).send();
-        }
-        else {
-            return
-        }
-    });
+
 })
 
 module.exports = router;
