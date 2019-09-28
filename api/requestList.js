@@ -10,7 +10,7 @@ router.post('/requestList', userpolicy, async (req, res) => {
         requests = []
         for (let i = 0; i < users.length; i++) {
             try {
-                user = await member.findOne({ '_id': users[i].SenderID, "TeamID": "" })
+                user = await member.findOne({ '_id': users[i].SenderID, "TeamID": "" }, { name: 1, regno: 1 })
                 if (user) requests.push(user)
             } catch (err) {
                 return res.status(401).json({ err: err.message })
