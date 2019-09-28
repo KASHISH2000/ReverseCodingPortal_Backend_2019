@@ -7,6 +7,7 @@ userpolicy = require('../policies/user');
 //to->the on to whom req is sent
 
 router.post('/confirmReq', userpolicy, (req, res) => {
+    if(!req.body.to) return res.status(401).json({err:'RequestId not found'})
     from = req.body.id
     // console.log("from", from)
     // console.log("to", req.body.to)
@@ -26,7 +27,7 @@ router.post('/confirmReq', userpolicy, (req, res) => {
                 })
             })
         } else {
-            res.json({ 'ERROR MESSAGE': 'REQUEST NOT FOUND' });
+            res.status(401).json({ "err": 'REQUEST NOT FOUND' });
         }
     });
     request.findOneAndDelete({ 'ReceiverID': from, 'SenderID': req.body.to }).then((user) => {

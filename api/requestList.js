@@ -3,16 +3,20 @@ const request = require('../models/request');
 const member = require('../models/member');
 userpolicy = require('../policies/user');
 
-router.get('/requestList', userpolicy, (req, res) => {
+router.post('/requestList', userpolicy, async (req, res) => {
     id = req.body.id
-    request.find({ 'ReceiverID': id }).then((user) => {
-        //res.json({ 'user': user.SenderID });
-        member.find({ '_id': user.SenderID }).then((user) => {
-            res.json({ 'user': user });
-            //     res.json({ 'Details of Requests received': user.name });
-        }).catch((err) => {
-            res.status(401).json({ err: "" })
-        })
+    request.find({ 'ReceiverID': id }).then(async (users) => {
+        console.log(users)
+        requests = []
+        for (let i = 0; i < users.length; i++) {
+            try {
+                user = await member.findOne({ '_id': users[i].SenderID, "TeamID": "" })
+                if (user) requests.push(user)
+            } catch (err) {
+                return res.status(401).json({ err: err.message })
+            }
+        }
+        res.json({ 'user': requests });
     })
 })
 

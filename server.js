@@ -15,12 +15,7 @@ var app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-app.use('', Connect);
-app.use('', showMember);
-app.use('', postReq);
-app.use('', confirmReq);
-app.use('', dashboard);
-app.use('', requestList);
+
 
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*");
@@ -28,6 +23,13 @@ app.use((req, res, next) => {
     res.header('Access-Control-Allow-Methods', 'GET, PUT, POST, DELETE, PATCH, OPTIONS');
     next()
 })
+
+app.use('', Connect);
+app.use('', showMember);
+app.use('', postReq);
+app.use('', confirmReq);
+app.use('', dashboard);
+app.use('', requestList);
 app.listen(port, () => {
     console.log(`Server is up at ${port}`);
 
