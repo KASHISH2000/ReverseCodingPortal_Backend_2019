@@ -14,6 +14,7 @@ router.post('/confirmReq', userpolicy, (req, res) => {
     console.log({ 'ReceiverID': from, 'SenderID': req.body.to })
     request.findOne({ 'ReceiverID': from, 'SenderID': req.body.to }).then((user) => {
         if (user) {
+            console.log('Creating new Team')
             new team({
                 MemberOneID: req.body.to,
                 MemberTwoID: from
@@ -26,14 +27,14 @@ router.post('/confirmReq', userpolicy, (req, res) => {
                     res.json({ "Message": "Congratulations! Team Formed." })
                 })
             })
-            request.findOneAndDelete({ 'ReceiverID': from, 'SenderID': req.body.to }).then((user) => {
-                if (!user) {
-                    return res.status(404).send();
-                }
-                else {
-                    return
-                }
-            });
+            request.deleteMany({
+                $or: [
+                    { 'ReceiverID': req.body.to },
+                    { 'SenderID': req.body.to },
+                    { 'ReceiverID': from },
+                    { 'SenderID': from },
+                ]
+            })
         } else {
             res.status(401).json({ "err": 'REQUEST NOT FOUND' });
         }
