@@ -3,6 +3,13 @@ const member = require('../models/member');
 const Team = require('../models/team')
 userpolicy = require('../policies/user');
 
+router.post('/me', userpolicy, (req, res) => {
+    member.findOne({ _id: req.body.id}).then((user) => {
+        res.json(user);
+    }).catch((e)=>{
+        res.status(401).json({err:e.message})
+    })
+})
 router.post('/dashboard', userpolicy, (req, res) => {
     id = req.body.id
     Team.findOne({ $or: [{ MemberOneID: id }, { MemberTwoID: id }] }).then((team) => {
