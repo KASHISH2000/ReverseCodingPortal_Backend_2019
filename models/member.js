@@ -35,7 +35,11 @@ var memberSchema = new mongoose.Schema({
         type: String,
         default: ''
     },
-    picture:{
+    teamName: {
+        type: String,
+        required: true
+    },
+    picture: {
         type: String,
         default: ''
     }

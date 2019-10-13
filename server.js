@@ -6,6 +6,7 @@ const postReq = require('./api/postReq');
 const confirmReq = require('./api/confirmReq');
 const dashboard = require('./api/dashboard');
 const requestList = require('./api/requestList');
+const connect = require('./api/rounds/connect');
 const mongoose = require('./db/mongoose');
 const dotenv = require('dotenv').config();
 const port = process.env.PORT || 3000;
@@ -30,6 +31,7 @@ app.use('', postReq);
 app.use('', confirmReq);
 app.use('', dashboard);
 app.use('', requestList);
+app.use('', connect);
 app.listen(port, () => {
     console.log(`Server is up at ${port}`);
 
